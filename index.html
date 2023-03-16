@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Pop Quiz</title>
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Pop Quiz</title>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css">
+</head>
 
-  <body>
+<body>
 
+  <div id="quiz-container" style="display: none">
 
+    <!-- Quiz questions and answer choices will be displayed here -->
+  </div>
 
-
-
-
-
-
-
-
-
-
-    <script src="./assets/script.js"></script>
-
-  </body>
-
+  <div id="score-container" style="display: none">
+    <h2>Your Score: <span id="score"></span></h2>
+    <form>
+      <label for="initials">Enter Your Initials:</label>
+      <input type="text" id="initials" name="initials" maxlength="3">
+      <button type="submit" id="save-score">Save Score</button>
+    </form>
+  </div>
+  <script src="assets/script.js"></script>
+</body>
 
 </html>
