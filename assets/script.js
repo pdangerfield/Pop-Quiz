@@ -100,7 +100,8 @@ function checkAnswer(answerIndex) {
     score++;
     resultEl.textContent = "Correct!"
   } else {
-    resultEl.textContent = "Wrong"
+    resultEl.textContent = "Wrong";
+    timerCount -= 10;
   }
 
   currentQuestion++;
@@ -108,20 +109,11 @@ function checkAnswer(answerIndex) {
   if(currentQuestion < quizQuestions.length){
     displayQuestion();
   } else {
-    alert('Quiz is over. Your score is (score)/(quizQuestions.length).');
+    resultEl.textcontent = 'The Quiz is over. Your score is' + (score/quizQuestions.length);
   }
   }
 
 
-// for(var i=0; i < questions.length; i++){
-//     var response = window.prompt(questions[i].prompt);
-//     if(response == questions[i].answer){
-//         score ++;
-//         alert("Correct!");
-//     } else {
-//         alert("Wrong");
-//     }
-//     }
 
 //     alert("You got" + score + "/" + questions.length);
 
