@@ -15,6 +15,7 @@ function startQuiz() {
   timerCount = 75;
   startBtn.disabled = true;
   startTimer()
+  displayQuestion()
 }
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -39,45 +40,77 @@ function startTimer() {
   }, 1000);
 }
 
-
-
 startBtn.addEventListener("click", startQuiz);
 
 
 
-var questions = [
+var quizQuestions = [
   {
     question: "What is the DOM?",
-    choiceA: "Document Object Model",
-    choiceB: "something",
-    choiceC: "something else",
-    correct: "A"
+    answers: ["Document Object Model", "something", "something else"],
+    correct: 0
   },
   {
     question: "What is an array?",
-    choiceA: "Document Object Model",
-    choiceB: "A special variable, which can hold more than one value",
-    choiceC: "something else",
-    correct: "B"
+    answers: ["Document Object Model", "A special variable, which can hold more than one value", "something else"],
+    correct: 1
   },
   {
     question: "How many variables can an object hold?",
-    choiceA: "They can't hold any values",
-    choiceB: " Don't choose me",
-    choiceC: "They can hold multiple",
-    correct: "C"
+    answers: ["They can't hold any values", " Don't choose me", "They can hold multiple"],
+    correct: 2
   },
   {
     question: "Why do we use JavaScript?",
-    choiceA: "css is boring",
-    choiceB: "Interact with our html/css",
-    choiceC: "something else",
-    correct: "B"
-  },
-]
+    answers: ["css is boring", "Interact with our html/css", "something else"],
+    correct: 1
+  }
+];
 
+var currentQuestion = 0;
 var score = 0;
 
+
+function displayQuestion() {
+  var questions = quizQuestions[currentQuestion];
+  var questionEl = document.getElementById("question-container");
+  var answersEl = document.getElementById("answer-container");
+
+  questionEl.textContent = questions.question;
+
+  while (answersEl.firstChild) {
+    answersEl.removeChild(answersEl.firstChild);
+  }
+
+  questions.answers.forEach((answer, index) => {
+    var answerEl = document.createElement("button");
+    answerEl.textContent = answer;
+    answerEl.addEventListener("click", () => {
+      checkAnswer(index);
+    });
+    answersEl.appendChild(answerEl)
+
+  });
+}
+
+function checkAnswer(answerIndex) {
+  var questions = quizQuestions[currentQuestion];
+  var resultEl = document.getElementById("feedback-container")
+  if(answerIndex === questions.correct){
+    score++;
+    resultEl.textContent = "Correct!"
+  } else {
+    resultEl.textContent = "Wrong"
+  }
+
+  currentQuestion++;
+
+  if(currentQuestion < quizQuestions.length){
+    displayQuestion();
+  } else {
+    alert('Quiz is over. Your score is (score)/(quizQuestions.length).');
+  }
+  }
 
 
 // for(var i=0; i < questions.length; i++){
