@@ -11,28 +11,43 @@
 
   <header>
     <div class="view-scores">View High Scores</div>
-    <div class= "card timer">
-      <div class = "timer-text">
-      <div class="large-font timer-count">20</div>
-      <h3>seconds remaining</h3>
-    </div>
-  
-   
+
+    <div class="timer-count"></div>
   </header>
+  <main>
+    <section>
+      <div class="quiz">
+        <div class="quiz-header">
+          <h2>Coding Quiz Challenge</h2>
+        </div>
+        <div class="quiz-body"> Try to answer the following code-related questions within the
+          time limit. Keep in mind that incorrect answers will penalize your
+          score and time by ten seconds!
 
-  <div id="quiz-container" style="display: none">
 
-    <!-- Quiz questions and answer choices will be displayed here -->
-  </div>
+          <div class="quiz-footer">
+            <button id="start" class="button">Start</button>
+          </div>
 
-  <div id="score-container" style="display: none">
-    <h2>Your Score: <span id="score"></span></h2>
-    <form>
-      <label for="initials">Enter Your Initials:</label>
-      <input type="text" id="initials" name="initials" maxlength="3">
-      <button type="submit" id="save-score">Save Score</button>
-    </form>
-  </div>
+        </div>
+
+        <!-- Quiz questions and answer choices will be displayed here -->
+      </div>
+
+      <div id="score-container" style="display: none">
+        <h2>Your Score: <span id="score"></span></h2>
+        <form>
+          <label for="initials">Enter Your Initials:</label>
+          <input type="text" id="initials" name="initials" maxlength="3">
+          <button type="submit" id="save-score">Save Score</button>
+        </form>
+      </div>
+    </section>
+
+
+
+  </main>
+
   <script src="assets/script.js"></script>
 </body>
 

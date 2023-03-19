@@ -1,19 +1,28 @@
 var body = document.body;
 var h1El = document.createElement("h1");
 var infoEl = document.createElement("div");
-var startBtn = document.createElement("button");
+var startBtn = document.querySelector(".button");
 var timerElement = document.querySelector(".timer-count");
 
 
+
 var timer;
-var timerCount = 20;
+var timerCount;
+
+
+
+function startQuiz() {
+  timerCount = 75;
+  startBtn.disabled = true;
+  startTimer()
+}
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 function startTimer() {
   // Sets timer
   timer = setInterval(function () {
     timerCount--;
-    timerElement.textContent = timerCount;
+    timerElement.textContent = "Time:" + timerCount;
     // if (timerCount >= 0) {
     //   // Tests if win condition is met
     //   if (isWin && timerCount > 0) {
@@ -30,9 +39,9 @@ function startTimer() {
   }, 1000);
 }
 
-startTimer();
 
 
+startBtn.addEventListener("click", startQuiz);
 
 
 
@@ -83,16 +92,18 @@ var score = 0;
 
 //     alert("You got" + score + "/" + questions.length);
 
-h1El.textContent = "Coding Quiz Challenge";
-infoEl.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score and time by ten seconds!";
-startBtn.textContent = "Start";
+
 // questions.textContent = for(var i =0; i< questions.length; i++){
 // };
 
-body.appendChild(h1El);
-body.appendChild(infoEl);
-body.appendChild(startBtn);
-body.appendChild(questions);
 
 
-h1.setAttribute("display", "none");
+
+
+// setitem to save initials/score to local storage
+// getitem to display high scores
+
+
+// adjust display for main info to go blank and then display the questions.
+
+
