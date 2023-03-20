@@ -3,17 +3,23 @@ var h1El = document.createElement("h1");
 var infoEl = document.createElement("div");
 var startBtn = document.querySelector(".button");
 var timerElement = document.querySelector(".timer-count");
-
+var scoreEl = document.querySelector("#score");
+var initialsForm = document.querySelector("#initials-form");
+var initialsInput = document.querySelector("#initials");
 
 
 var timer;
 var timerCount;
+var score;
+var initials;
+
 
 
 
 function startQuiz() {
   timerCount = 75;
   startBtn.disabled = true;
+  score = 0;
   startTimer()
   displayQuestion()
 }
@@ -96,7 +102,7 @@ function displayQuestion() {
 function checkAnswer(answerIndex) {
   var questions = quizQuestions[currentQuestion];
   var resultEl = document.getElementById("feedback-container")
-  if(answerIndex === questions.correct){
+  if (answerIndex === questions.correct) {
     score++;
     resultEl.textContent = "Correct!"
   } else {
@@ -106,20 +112,48 @@ function checkAnswer(answerIndex) {
 
   currentQuestion++;
 
-  if(currentQuestion < quizQuestions.length){
+  if (currentQuestion < quizQuestions.length) {
     displayQuestion();
   } else {
-    resultEl.textcontent = 'The Quiz is over. Your score is' + (score/quizQuestions.length);
+    endQuiz();
   }
-  }
+
+}
+
+function addGoBackBtn(){
+  var goBackBtn = document.createElement("button");
+  goBackBtn.textContent = "Go Back";
+  goBackBtn.addEventListener("click", function(){
+    location.reload();
+  });
+  body.appendChild(goBackBtn);
+}
+
+function endQuiz() {
+  clearInterval(timer);
+  scoreEl.textContent = score;
+  document.getElementById("score-container").style.display = "block";
+  addGoBackBtn();
+}
+
+initialsForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  initials = initialsInput.value.trim().toUpperCase();
+  var scores = JSON.parse(localStorage.getItem("scores")) || [];
+  scores.push({
+    initials: initials,
+    score: score
+  });
+  localStorage.setItem("scores", JSON.stringify(scores));
+  
+});
 
 
 
-//     alert("You got" + score + "/" + questions.length);
 
 
-// questions.textContent = for(var i =0; i< questions.length; i++){
-// };
+
+
 
 
 
@@ -129,6 +163,6 @@ function checkAnswer(answerIndex) {
 // getitem to display high scores
 
 
-// adjust display for main info to go blank and then display the questions.
+
 
 
