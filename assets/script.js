@@ -17,7 +17,7 @@ var initials;
 
 
 function startQuiz() {
-  timerCount = 75;
+  timerCount = 30;
   startBtn.disabled = true;
   score = 0;
   startTimer()
