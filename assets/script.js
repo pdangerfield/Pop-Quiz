@@ -110,6 +110,11 @@ function checkAnswer(answerIndex) {
     timerCount -= 10;
   }
 
+setTimeout(function(){
+  resultEl.textContent="";
+}, 1000);
+
+
   currentQuestion++;
 
   if (currentQuestion < quizQuestions.length) {
