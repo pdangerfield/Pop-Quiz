@@ -53,22 +53,22 @@ startBtn.addEventListener("click", startQuiz);
 var quizQuestions = [
   {
     question: "What is the DOM?",
-    answers: ["Document Object Model", "something", "something else"],
+    answers: ["A. Document Object Model", "B. An Alien", "C. Something that we don't need to worry about"],
     correct: 0
   },
   {
     question: "What is an array?",
-    answers: ["Document Object Model", "A special variable, which can hold more than one value", "something else"],
+    answers: ["A. Document Object Model", "B. A special variable, which can hold more than one value", "C. A bright light"],
     correct: 1
   },
   {
     question: "How many variables can an object hold?",
-    answers: ["They can't hold any values", " Don't choose me", "They can hold multiple"],
+    answers: ["A. They can't hold any values", "B. Don't choose me", "C. They can hold multiple"],
     correct: 2
   },
   {
     question: "Why do we use JavaScript?",
-    answers: ["css is boring", "Interact with our html/css", "something else"],
+    answers: ["A. css is boring", "B. Interact with our html/css", "C. So we don't have to write everything in HTML/css"],
     correct: 1
   }
 ];
@@ -160,7 +160,6 @@ initialsForm.addEventListener("submit", function (event) {
 
 
 // setitem to save initials/score to local storage
-// getitem to display high scores
 
 
 
