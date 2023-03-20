@@ -30,17 +30,12 @@ function startTimer() {
   timer = setInterval(function () {
     timerCount--;
     timerElement.textContent = "Time:" + timerCount;
-    // if (timerCount >= 0) {
-    //   // Tests if win condition is met
-    //   if (isWin && timerCount > 0) {
-    //     // Clears interval and stops timer
-    //     clearInterval(timer);
-    //   }
-    // }
-    // Tests if time has run out
-    if (timerCount === 0) {
+    
+   
+   if (timerCount === 0) {
       // Clears interval
       clearInterval(timer);
+      endQuiz();
 
     }
   }, 1000);
